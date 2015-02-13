@@ -7,7 +7,7 @@ angular.module('cloneApp')
       'link': '/'
     }, {
       'title': 'Posts',
-      'link': '/post'
+      'link': '/posts'
     }];
 
     $scope.isCollapsed = true;

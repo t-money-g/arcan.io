@@ -5,7 +5,9 @@ angular.module('cloneApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'summernote',
+  'LocalStorageModule'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
@@ -15,6 +17,7 @@ angular.module('cloneApp', [
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
+
   })
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {

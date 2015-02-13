@@ -35,7 +35,7 @@ angular.module('cloneApp')
         $scope.error = errorResponse.data.message;
       })
       .success(function() {
-        $location.path("/");
+        $location.path('/');
       });
     };
   });

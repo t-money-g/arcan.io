@@ -1,2 +1,4 @@
 # arcan.io
-Hyper administered hypermedia 
+##Hyper administered hypermedia 
+
+Just a little multiuser content mangement system
