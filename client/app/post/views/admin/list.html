@@ -1,0 +1,20 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<!--<section data-ng-init="find()"> -->
+<div class="page-header">
+  <h1>Posts</h1>
+</div>
+
+
+
+<div class="container">
+  <p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="post in posts">
+        <strong>{{post.title}}</strong><br>
+        <span class="text-muted" data-ng-bind="post.date | date: 'mediumDate"></span>
+        <a ng-click="edit(post)" class="edit"><span class="glyphicon glyphicon-edit"></span></a>
+        <a ng-click="delete(post)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+    </li>
+  </ul>
+</div>

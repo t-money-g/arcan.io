@@ -7,7 +7,7 @@ angular.module('cloneApp', [
   'ngRoute',
   'ui.bootstrap',
   'summernote',
-  'LocalStorageModule'
+  'ui.utils'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

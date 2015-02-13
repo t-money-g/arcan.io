@@ -5,9 +5,6 @@ angular.module('cloneApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
-    }, {
-      'title': 'Posts',
-      'link': '/posts'
     }];
 
     $scope.isCollapsed = true;

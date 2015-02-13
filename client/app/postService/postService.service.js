@@ -1,7 +1,12 @@
 'use strict';
 
-var postServices = angular.module('postServices', ['ngResource']);
-postServices.factory('Post',['$resource',
-  function($resource){
-    return $resource('posts.json',{});
-  }]);
+angular.module('cloneApp').factory('Posts', ['$resource', function($resource){
+  return $resource('api/posts/:postId',{
+    postId: '@_id'
+  },{
+    update: {
+      method : 'PUT'
+    }
+  });
+}
+]);

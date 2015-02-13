@@ -4,8 +4,8 @@ angular.module('cloneApp')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'app/post/views/public/list.html',
+        controller: 'PostCtrl'
       })
       .when('/:thingId/edit', {
         templateUrl: 'app/main/views/edit.html',

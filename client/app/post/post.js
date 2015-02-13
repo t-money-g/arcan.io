@@ -7,8 +7,20 @@ angular.module('cloneApp')
         templateUrl: 'app/post/views/list.html',
         controller: 'PostCtrl'
       })
-      .when('/:postId/post/edit', {
-        templateUrl: 'app/post/views/edit.html',
+      .when('/admin/posts', {
+        templateUrl: 'app/post/views/admin/list.html',
+        controller: 'PostCtrl'
+      })
+      .when('/posts/:postId', {
+        templateUrl: 'app/post/views/public/view.html',
+        controller:'PostCtrl'
+      })
+      .when('/posts/create', {
+        templateUrl: 'app/post/views/admin/create.html',
+        controller: 'PostCtrl'
+      })
+      .when('/admin/posts/:postId/edit/', {
+        templateUrl: 'app/post/views/admin/edit.html',
         controller: 'PostCtrl'
       });
   });

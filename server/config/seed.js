@@ -7,7 +7,7 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
-var Post = require('..api/post/post.model');
+var Post = require('../api/post/post.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -56,11 +56,10 @@ Post.find({}).remove(function() {
     'date':1423603097000,
     'tags':[],
     content:'<p>Hello, <em>Terrence</em> here! I know you’ve been waiting a long time for this blog to come be reborn. A series of [misteps] , [mishaps] and comedy of errors. </p>\n',
-    raw:'title: first\ndate: 2015-02-10 15:18:17\ntags:\n---\nHello, _Terrence_ here! I know you\'ve been waiting a long time for this blog to come be reborn. A series of [misteps] , [mishaps] and comedy of errors. \n',
     slug:'first',
     updated:1423603195000,
     excerpt:"",
-
+    published:1,
     categories:[],
     comments:true,
     layout:"post",
@@ -77,6 +76,7 @@ Post.find({}).remove(function() {
     "tags":[],
     "comments":true,
     "layout":"post",
+    published:1,
     "photos":[],
     "link":""
   },
@@ -100,7 +100,6 @@ Post.find({}).remove(function() {
     "date":1423602819000,
     "updated":1423602819000,
     "excerpt":"",
-    "_id":"t0pud0u6x64mzu37",
     "categories":[],
     "tags":[],
     "comments":true,
@@ -115,7 +114,6 @@ Post.find({}).remove(function() {
     "date":1423602819000,
     "updated":1423602819000,
     "excerpt":"",
-    "_id":"t0pud0u6x64mzu38",
     "categories":[],
     "tags":[],
     "comments":true,

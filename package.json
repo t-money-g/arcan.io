@@ -1,6 +1,6 @@
 {
-  "name": "clone",
-  "version": "0.0.0",
+  "name": "arcan.io",
+  "version": "0.0.5",
   "main": "server/app.js",
   "dependencies": {
     "express": "~4.0.0",
