@@ -10,11 +10,12 @@ angular.module('cloneApp', [
   'ui.utils'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
+    /*
     $routeProvider
       .otherwise({
         redirectTo: '/'
       });
-
+    */
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
 

@@ -1,20 +1,63 @@
-<div ng-include="'components/header/header.html'"></div>
+<div ng-include="'components/navbar/navbar.html'"></div>
 
-<div class="container" data-ng-init="getPost()">
-  <form role="form" ng-submit="updatePost()" >
-    <div class="form-group">
-
-          <label>Title</label>
-          <input type="text" ng-model=post.title class="form-control">
-
-    </div>
-    <div class="form-group">
-          <label>Content </label>
-          <summernote height="300" ng-model=post.content></summernote>
-
-    </div>
-
-    <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
-  </form>
+<div class="page-header">
+  <h1>Edit Post</h1>
 </div>
+
+
+ <div class="col-md-12" data-ng-init="findOne()">
+  <div class="container">
+
+
+    <form name="postForm" class="form-horizontal" data-ng-submit="update()" novalidate>
+      <fieldset>
+        <div class="form-group" >
+          <label class="control-label" for="title">Title</label>
+          <div class="controls">
+            <input name="title" type="text" ng-model=post.title id="title" class="form-control" placeholder="Title" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="content">Content</label>
+          <div class="controls">
+            <summernote height="300" data-ng-model="post.content"></summernote>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="slug">Slug</label>
+          <input name="slug" type="text" data-ng-model="post.slug" id="slug"
+          class="form-contorl" placeholder="Slug">
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="excerpt">Except</label>
+          <textarea data-ng-model="post.excerpt" id="excerpt" class="form-control"
+          placeholder="Excerpt" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="tags">Tags</label>
+          <input name="tags" type="tags" data-ng-model="post.tags" id="tags" class="form-contol" placeholder="tags">
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="categories">Categories</label>
+          <input name="categories" type="text" data-ng-model="post.categories" class="form-control" placeholder="categories">
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="link">Link</label>
+          <input name="link" type="text" data-ng-model="post.link" class="form-control" placeholder="link">
+        </div>
+        <div class="form-group">
+          <span class="form-group-addon">
+            <label class="control-label" for="published">Published</label>
+            <input type="checkbox" data-ng-model=post.published aria-label="Published">
+          </span>
+
+        <div class="form-group">
+          <input type="submit" class="btn btn-default">
+        </div>
+        <div data-ng-show="error" class="text-danger">
+          <strong data-ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+    </div>
 <div ng-include="'components/footer/footer.html'"></div>

@@ -3,6 +3,19 @@
 var _ = require('lodash');
 var Post = require('./post.model');
 
+// GetErrorMessage
+var getErrorMessage = function(err) {
+  if(err.errors) {
+    for (var errName in err.errors) {
+      if(err.errors[errName].message)
+        return err.errors[errName].message;
+
+    }
+  } else {
+    return 'Unknown server error';
+  }
+};
+
 // Get list of posts
 exports.index = function(req, res) {
   Post.find(function (err, posts) {
@@ -22,9 +35,17 @@ exports.show = function(req, res) {
 
 // Creates a new post in the DB.
 exports.create = function(req, res) {
-  Post.create(req.body, function(err, post) {
-    if(err) { return handleError(res, err); }
-    return res.json(201, post);
+
+   var post = new Post(req.body);
+
+  post.save(function(err) {
+    if (err) {
+      return res.status(400).send({
+        message: getErrorMessage(err)
+      });
+    } else {
+      res.json(post);
+    }
   });
 };
 
@@ -54,6 +75,19 @@ exports.destroy = function(req, res) {
   });
 };
 
+exports.postById = function(req, res,next,id) {
+  Post.findById(id).exec(
+    function(err, post){
+      if (err) return next(err);
+      if(!post) return next(new Error('Failed to load post' + id));
+
+      req.post = post;
+      next();
+    });
+};
+
 function handleError(res, err) {
   return res.send(500, err);
 }
+
+

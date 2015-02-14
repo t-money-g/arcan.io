@@ -5,21 +5,23 @@ angular.module('cloneApp')
    function ($scope, $http, $routeParams,$location,Posts,Auth) {
     $scope.authentication = Auth;
 
-
+    $scope.posts = Posts.query();
     $scope.create = function(){
+
       var post = new Posts({
         title: this.title,
         date: Date.now(),
         tags: this.tags, // array of strings
         content: this.content,
         slug: this.slug,
+
         updated: this.date,
-        exerpt : this.excerpt,
+        excerpt : this.excerpt,
         categories: this.categories, //array of strings
+        published: this.published,
         link: this.link,
       });
-      post.save(function(response) {
-        $location.path('/posts/' + response._id);
+      post.$save(function(response) {
 
         $scope.title ='';
         $scope.date = new Date();
@@ -30,6 +32,7 @@ angular.module('cloneApp')
         $scope.excerpt = '';
         $scope.categories = [];
         $scope.link = '';
+         $location.path('/posts/' + response._id);
 
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
@@ -41,7 +44,7 @@ angular.module('cloneApp')
         post.$remove();
         for(var i in $scope.posts) {
           if($scope.posts[i] === post) {
-            $scope.articles.splice(i, 1);
+            $scope.posts.splice(i, 1);
           }
         }
       } else {

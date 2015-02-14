@@ -1,54 +1,62 @@
+
+<div ng-include="'components/navbar/navbar.html'"></div>
+
 <div class="page-header">
     <h1>New Post</h1>
   </div>
   <div class="col-md-12">
-    <form name="postForm" class="form-horizontal" data-ng-submit="create()" novalidate>
-      <fieldset>
-        <div class="form-group" >
-          <label class="control-label" for="title">Title</label>
-          <div class="controls">
-            <input name="title" type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="content">Content</label>
-          <div class="controls">
-            <summernote height="300" ng-model=post.content></summernote>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="slug">Slug</label>
-          <input name="slug" type="text" data-ng-model="slug" id="slug"
-          class="form-contorl" placeholder="Slug">
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="excerpt">Except</label>
-          <textarea data-ng-model="excerpt" id="excerpt" class="form-control"
-          placeholder="Excerpt" cols="30" rows="10"></textarea>
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="tags">Tags</label>
-          <input name="tags" type="tags" data-ng-model="tags" id="tags" class="form-contol" placeholder="tags">
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="categories">Categories</label>
-          <input name="categories" type="text" data-ng-model="categories" class="form-control" placeholder="categories">
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="link">Link</label>
-          <input name="link" type="text" data-ng-model="link" class="form-control" placeholder="link">
-        </div>
-        <div class="form-group">
-          <span class="form-group-addon">
-            <input type="checkbox" ng-model=post.published aria-label="Published">
-          </span>
+    <div class="container">
 
-        <div class="form-group">
-          <input type="submit" class="btn btn-default">
-        </div>
-        <div data-ng-show="error" class="text-danger">
-          <strong data-ng-bind="error"></strong>
-        </div>
-      </fieldset>
-    </form>
+      <form name="postForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+        <fieldset>
+          <div class="form-group" >
+            <label class="control-label" for="title">Title</label>
+            <div class="controls">
+              <input name="title" type="text" data-ng-model="title" id="title"
+               class="form-control" placeholder="Title" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="content">Content</label>
+            <div class="controls">
+              <summernote height="300" data-ng-model="content"></summernote>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="slug">Slug</label>
+            <input name="slug" type="text" data-ng-model="slug" id="slug"
+            class="form-contorl" placeholder="Slug">
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="excerpt">Except</label>
+            <textarea data-ng-model="excerpt" id="excerpt" class="form-control"
+            placeholder="Excerpt" cols="30" rows="10"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="tags">Tags</label>
+            <input name="tags" type="tags" data-ng-model="tags" id="tags" class="form-contol" placeholder="tags">
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="categories">Categories</label>
+            <input name="categories" type="text" data-ng-model="categories" class="form-control" placeholder="categories">
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="link">Link</label>
+            <input name="link" type="text" data-ng-model="link" class="form-control" placeholder="link">
+          </div>
+          <div class="form-group">
+            <span class="form-group-addon">
+              <label class="control-label" for="published">Published</label>
+              <input type="checkbox" data-ng-model="published" name="published" aria-label="Published">
+            </span>
+
+          <div class="form-group">
+            <input type="submit" class="btn btn-default">
+          </div>
+          <div data-ng-show="error" class="text-danger">
+            <strong data-ng-bind="error"></strong>
+          </div>
+        </fieldset>
+      </form>
+    </div>
   </div>

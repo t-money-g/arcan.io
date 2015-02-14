@@ -15,7 +15,7 @@ angular.module('cloneApp')
         templateUrl: 'app/post/views/public/view.html',
         controller:'PostCtrl'
       })
-      .when('/posts/create', {
+      .when('/post/create', {
         templateUrl: 'app/post/views/admin/create.html',
         controller: 'PostCtrl'
       })
