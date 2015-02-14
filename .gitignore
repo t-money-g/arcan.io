@@ -3,5 +3,6 @@ public
 .tmp
 .idea
 client/bower_components
+client/assets/.DS_Store
 dist
 /server/config/local.env.js

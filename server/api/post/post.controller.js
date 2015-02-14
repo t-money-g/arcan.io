@@ -1,7 +1,13 @@
 'use strict';
 
-var _ = require('lodash');
-var Post = require('./post.model');
+var _ = require('lodash'),
+  Post = require('./post.model'),
+  path = require('path'),
+  Busboy = require('busboy'),
+  connectb = require('connect-busboy'),
+  config = require('../../config/environment'),
+  fs = require('fs');
+
 
 // GetErrorMessage
 var getErrorMessage = function(err) {
@@ -86,6 +92,22 @@ exports.postById = function(req, res,next,id) {
     });
 };
 
+exports.upload = function(req, res) {
+  var busboy = new Busboy({ headers: req.headers});
+  var publicfolder = 'client/assets/images/uploads';
+  var fileName ='';
+  busboy.on('file', function(fieldname, file, filename,encoding, mimetype) {
+    var saveTo = path.join(config.root, publicfolder,
+      path.basename(fieldname));
+
+    fileName = filename;
+    file.pipe(fs.createWriteStream(saveTo));
+  });
+  busboy.on('finish', function() {
+    var imagePath = path.join(config.root,publicfolder, fileName);
+    return res.json(200, JSON.parse('{"path":"' + imagePath + '"}'))
+  });
+}
 function handleError(res, err) {
   return res.send(500, err);
 }

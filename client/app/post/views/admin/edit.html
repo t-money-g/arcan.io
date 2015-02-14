@@ -9,7 +9,7 @@
   <div class="container">
 
 
-    <form name="postForm" class="form-horizontal" data-ng-submit="update()" novalidate>
+    <form name="postForm" class="form-horizontal" data-ng-submit="update()" enctype="multipart/form-data"novalidate>
       <fieldset>
         <div class="form-group" >
           <label class="control-label" for="title">Title</label>
@@ -20,7 +20,8 @@
         <div class="form-group">
           <label class="control-label" for="content">Content</label>
           <div class="controls">
-            <summernote height="300" data-ng-model="post.content"></summernote>
+           <summernote height="300" data-ng-model="post.content" ></summernote>
+
           </div>
         </div>
         <div class="form-group">

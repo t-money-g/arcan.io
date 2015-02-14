@@ -7,7 +7,8 @@ angular.module('cloneApp', [
   'ngRoute',
   'ui.bootstrap',
   'summernote',
-  'ui.utils'
+  'ui.utils',
+  'angularFileUpload'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     /*

@@ -6,6 +6,7 @@ angular.module('cloneApp')
     $scope.authentication = Auth;
 
     $scope.posts = Posts.query();
+    $scope.editable = true;
     $scope.create = function(){
 
       var post = new Posts({
@@ -72,5 +73,12 @@ angular.module('cloneApp')
         postId: $routeParams.postId
       });
     };
+
+    $scope.imageUpload = function(files, editor) {
+     //send the file to server
+      console.log('image upload:', files, editor);
+     editor.insertImage($scope.editable, files[0]);
+  };
+
 
 });
